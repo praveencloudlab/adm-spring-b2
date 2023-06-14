@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cts.ecart.service.ProductServiceImpl;
+import com.cts.ecart.service.UserServiceImpl;
 
 public class Test {
 
@@ -16,8 +17,23 @@ public class Test {
 		
 		//ProductServiceImpl ps=(ProductServiceImpl)ac.getBean("p1");
 		//ProductServiceImpl ps = ac.getBean("p1",ProductServiceImpl.class);
-		ProductServiceImpl ps = ac.getBean(ProductServiceImpl.class);
-		ps.save();
+		
+		ProductServiceImpl ps1 = ac.getBean(ProductServiceImpl.class);
+		//ProductServiceImpl ps2 = ac.getBean(ProductServiceImpl.class);
+		
+		UserServiceImpl userService = ac.getBean(UserServiceImpl.class);
+		
+		
+		/*
+		 * steps to save object in database
+		 * 1.call service method
+		 * 2.call repository method from service method
+		 * 
+		 */
+		
+		ps1.save();
+		userService.display();
+		//ps2.save();
 
 		
 		

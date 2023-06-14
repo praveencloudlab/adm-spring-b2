@@ -5,8 +5,16 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
         
 
-<bean id="p1" class="com.cts.ecart.service.ProductServiceImpl"/>
-<bean id="user" class="com.cts.ecart.service.UserServiceImpl"/>
+<!--<bean id="p1" autowire="byType" class="com.cts.ecart.service.ProductServiceImpl" lazy-init="false" scope="singleton"/>-->
+<bean id="p2" class="com.cts.ecart.service.ProductServiceImpl" lazy-init="false" scope="singleton">
+	<property name="productRepository" ref="productRepository"></property>
+</bean>
+
+<bean id="prodRepository" class="com.cts.ecart.repository.ProductRepositoryImpl"/>
+<bean id="productRepository" class="com.cts.ecart.repository.ProductRepositoryImpl"/>
+<bean id="user" class="com.cts.ecart.service.UserServiceImpl" lazy-init="true">
+	<property name="userName" value="Admin"/>
+</bean>
 
 
              
