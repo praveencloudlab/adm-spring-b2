@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<form action="./saveProductV1" method="post">
+ <input placeholder="Product Name" name="productName"/> <br/>
+ <input placeholder="Product Price" name="price"/> <br/>
+ <textarea placeholder="Product Description" name="description"></textarea> <br/>
+ <button>Save</button>
+
+</form>
+
+<br/>
+
+<hr/>
+
+<div th:if="${product}">
+	<table border="1">
+		<tr>
+			<th>Product Name</th>
+			<th>Product Price</th>
+			<th>Description</th>
+		</tr>
+		
+		<tbody>
+			<tr>
+					<td th:text="${product.productName}"></td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${product.description}"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+</body>
+</html>
